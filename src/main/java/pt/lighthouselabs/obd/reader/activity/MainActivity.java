@@ -254,7 +254,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 
   public void stateUpdate(final ObdCommandJob job) {
     final String cmdName = job.getCommand().getName();
-    String cmdResult = "";
+    String cmdResult;
     final String cmdID = LookUpCommand(cmdName);
 
     if (job.getState().equals(ObdCommandJob.ObdCommandJobState.EXECUTION_ERROR)) {
@@ -283,7 +283,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
         mLocService.addGpsStatusListener(this);
         if (mLocService.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
           gpsStatusTextView.setText(getString(R.string.status_gps_ready));
-			setGpsNotifColor(getResources().getColor(R.color.soft_green));
+			setGpsNotifColor(getResources().getColor(R.color.soft_yellow));
           return true;
         }
       }
@@ -357,8 +357,9 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
     endTrip();
 
     final BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
-    if(btAdapter != null && btAdapter.isEnabled() && !bluetoothDefaultIsEnable )
-      btAdapter.disable();
+    if(btAdapter != null && btAdapter.isEnabled() && !bluetoothDefaultIsEnable ) {
+		btAdapter.disable();
+	}
   }
 
   @Override
@@ -402,7 +403,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 		setBtNotifColor(getResources().getColor(R.color.soft_red));
     } else {
       btStatusTextView.setText(getString(R.string.status_bluetooth_ok));
-		setBtNotifColor(getResources().getColor(R.color.soft_green));
+		setBtNotifColor(getResources().getColor(R.color.soft_yellow));
     }
   }
 
@@ -465,10 +466,13 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
     // start command execution
     new Handler().post(mQueueCommands);
 
-    if(prefs.getBoolean(ConfigActivity.ENABLE_GPS_KEY, false))
+    if(prefs.getBoolean(ConfigActivity.ENABLE_GPS_KEY, false)) {
       gpsStart();
-    else
+    }
+    else {
       gpsStatusTextView.setText(getString(R.string.status_gps_not_used));
+      setGpsNotifColor(getResources().getColor(R.color.light_cyan));
+    }
 
     // screen won't turn off until wakeLock.release()
     wakeLock.acquire();
@@ -591,7 +595,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
         service.stopService();
         if (preRequisites)
           btStatusTextView.setText(getString(R.string.status_bluetooth_ok));
-		  setBtNotifColor(getResources().getColor(R.color.soft_green));
+		  setBtNotifColor(getResources().getColor(R.color.soft_yellow));
       }
       Log.d(TAG, "Unbinding OBD service..");
       unbindService(serviceConn);
@@ -661,6 +665,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
     } else if (mGpsIsStarted && mLocProvider != null && mLocService != null) {
     } else {
       gpsStatusTextView.setText(getString(R.string.status_gps_no_support));
+      setGpsNotifColor(getResources().getColor(R.color.soft_red));
     }
   }
 
@@ -677,12 +682,15 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 		switch (state) {
 			case GpsStatus.GPS_EVENT_STARTED:
 				gpsStatusTextView.setText(getString(R.string.status_gps_started));
+				setGpsNotifColor(getResources().getColor(R.color.soft_yellow));
 				break;
 			case GpsStatus.GPS_EVENT_STOPPED:
 				gpsStatusTextView.setText(getString(R.string.status_gps_stopped));
+				setGpsNotifColor(getResources().getColor(R.color.soft_yellow));
 				break;
 			case GpsStatus.GPS_EVENT_FIRST_FIX:
 				gpsStatusTextView.setText(getString(R.string.status_gps_fix));
+				setGpsNotifColor(getResources().getColor(R.color.soft_green));
 				break;
 			case GpsStatus.GPS_EVENT_SATELLITE_STATUS:
 				break;

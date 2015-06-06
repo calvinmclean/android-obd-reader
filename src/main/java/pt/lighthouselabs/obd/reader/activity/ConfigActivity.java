@@ -89,8 +89,8 @@ public class ConfigActivity extends PreferenceActivity implements OnPreferenceCh
    * @return
    */
   public static double getEngineDisplacement(SharedPreferences prefs) {
-    String edString = prefs.getString(ConfigActivity.ENGINE_DISPLACEMENT_KEY, "1.6");
-    double ed = 1.6;
+    String edString = prefs.getString(ConfigActivity.ENGINE_DISPLACEMENT_KEY, "4.6");
+    double ed = 4.6;
     try {
       ed = Double.parseDouble(edString);
     } catch (Exception e) {
