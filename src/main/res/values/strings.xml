@@ -26,8 +26,10 @@
     <string name="text_bluetooth" translatable="false">Bluetooth</string>
     <string name="text_orientation_default" translatable="false">N</string>
     <string name="text_zero" translatable="false">0</string>
-    <string name="text_consumption_default" translatable="false">0l/100km</string>
+    <!--<string name="text_consumption_default" translatable="false">0l/100km</string>-->
+    <string name="text_consumption_default" translatable="false">fuel stuff here</string>
     <string name="text_runtime_default" translatable="false">00:00:00</string>
+    <string name="text_engine_rpm_default" translatable="false">--- RPM</string>
     <string name="title_pref_obd">OBD Preferences</string>
     <string name="title_pref_commands">OBD Commands</string>
     <string name="title_pref_bluetooth" translatable="false">Bluetooth</string>
