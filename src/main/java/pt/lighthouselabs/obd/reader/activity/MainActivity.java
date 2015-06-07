@@ -167,20 +167,23 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 	@InjectView(R.id.compass_text)
 	private TextView compass;
 
+	@InjectView(R.id.BT_STATUS_LABEL)
+	private TextView btStatusLabelTextView;
+
 	@InjectView(R.id.BT_STATUS)
 	private TextView btStatusTextView;
 
-	@InjectView(R.id.BT_STATUS_LABEL)
-	private TextView btStatusLabelTextView;
+	@InjectView(R.id.OBD_STATUS_LABEL)
+	private TextView obdStatusLabelTextView;
 
 	@InjectView(R.id.OBD_STATUS)
 	private TextView obdStatusTextView;
 
-	@InjectView(R.id.GPS_POS)
-	private TextView gpsStatusTextView;
-
 	@InjectView(R.id.GPS_POS_LABEL)
 	private TextView gpsStatusLabelTextView;
+
+	@InjectView(R.id.GPS_POS)
+	private TextView gpsStatusTextView;
 
 	@InjectView(R.id.vehicle_view)
 	private LinearLayout vv;
@@ -261,11 +264,15 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 		if (job.getState().equals(ObdCommandJob.ObdCommandJobState.EXECUTION_ERROR)) {
 
 			cmdResult = job.getCommand().getResult();
-			if (cmdResult != null)
+			if (cmdResult != null) {
 				obdStatusTextView.setText(cmdResult.toLowerCase());
-		} else {
+				setObdNotifColor(getResources().getColor(R.color.soft_red));
+			}
+		}
+		else {
 			cmdResult = job.getCommand().getFormattedResult();
 			obdStatusTextView.setText(getString(R.string.status_obd_data));
+			setObdNotifColor(getResources().getColor(R.color.soft_green));
 		}
 
 		if (vv.findViewWithTag(cmdID) != null) {
@@ -601,6 +608,7 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 			unbindService(serviceConn);
 			isServiceBound = false;
 			obdStatusTextView.setText(getString(R.string.status_obd_disconnected));
+			setObdNotifColor(getResources().getColor(R.color.soft_yellow));
 		}
 	}
 
@@ -701,16 +709,21 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 
 	}
 
+	private void setGpsNotifColor(int color) {
+		gpsStatusLabelTextView.setBackgroundColor(color);
+		gpsStatusTextView.setBackgroundColor(color);
+	}
 
 	private void setBtNotifColor(int color) {
-		btStatusTextView.setBackgroundColor(color);
 		btStatusLabelTextView.setBackgroundColor(color);
+		btStatusTextView.setBackgroundColor(color);
 	}
 
-	private void setGpsNotifColor(int color) {
-		gpsStatusTextView.setBackgroundColor(color);
-		gpsStatusLabelTextView.setBackgroundColor(color);
+	private void setObdNotifColor(int color){
+		obdStatusLabelTextView.setBackgroundColor(color);
+		obdStatusTextView.setBackgroundColor(color);
 	}
+
 
 
 }
