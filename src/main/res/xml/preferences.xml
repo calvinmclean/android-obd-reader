@@ -71,11 +71,11 @@
             android:summary="Select OBD Protocol to use"
             android:title="OBD Protocol" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:dialogTitle="Imperial Units"
             android:key="imperial_units_preference"
-            android:summaryOff="Enable imperial units"
-            android:summaryOn="Go back to metric units"
+            android:summaryOff="Use imperial units"
+            android:summaryOn="Use metric units"
             android:title="Imperial Units" />
         <EditTextPreference
             android:defaultValue="4"
