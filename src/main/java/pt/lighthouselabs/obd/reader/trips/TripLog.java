@@ -174,7 +174,7 @@ public class TripLog {
     //update();
 
     final String tag = TAG + ".readAllRecords()";
-    List<TripRecord> list = new ArrayList<TripRecord>();
+    List<TripRecord> list = new ArrayList<>();
     Cursor cursor = null;
 
     try {
