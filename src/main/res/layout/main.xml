@@ -81,6 +81,7 @@
       android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/GPS_POS_LABEL"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -89,6 +90,7 @@
         android:textSize="@dimen/abc_text_size_medium_material"/>
 
     <TextView
+        android:id="@+id/BT_STATUS_LABEL"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -97,6 +99,7 @@
         android:textSize="@dimen/abc_text_size_medium_material"/>
 
     <TextView
+        android:id="@+id/OBD_STATUS_LABEL"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
