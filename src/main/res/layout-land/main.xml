@@ -61,9 +61,10 @@
   <ScrollView
       android:id="@+id/data_scroll"
       android:layout_width="fill_parent"
-      android:layout_height="299dp"
+      android:layout_height="0dp"
       android:layout_gravity="top"
       android:layout_margin="10dp"
+      android:layout_weight="1"
       android:elevation="2dp"
       android:outlineProvider="bounds">
 
@@ -97,14 +98,14 @@
         android:text="@string/text_bluetooth"
         android:textSize="@dimen/abc_text_size_medium_material"/>
 
-    <!--<TextView-->
-        <!--android:id="@+id/OBD_STATUS_LABEL"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/text_obd"-->
-        <!--android:textSize="@dimen/abc_text_size_medium_material"/>-->
+    <TextView
+        android:id="@+id/OBD_STATUS_LABEL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/text_obd"
+        android:textSize="@dimen/abc_text_size_medium_material"/>
 
 
   </TableRow>
@@ -129,59 +130,13 @@
         android:gravity="center"
         android:text=""/>
 
+    <TextView
+        android:id="@+id/OBD_STATUS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""/>
   </TableRow>
-
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/OBD_STATUS_LABEL"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/text_obd"
-            android:textSize="@dimen/abc_text_size_medium_material"/>
-
-        <TextView
-            android:id="@+id/BATT_TEMP_STATUS_LABEL"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/text_battery_temp"
-            android:textSize="@dimen/abc_text_size_medium_material"/>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/OBD_STATUS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=""/>
-
-        <TextView
-            android:id="@+id/BATT_TEMP_STATUS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=""/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/OBD_STATUS"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:gravity="center"-->
-            <!--android:text=""/>-->
-    </TableRow>
 
 </LinearLayout>
