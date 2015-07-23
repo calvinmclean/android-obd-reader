@@ -746,11 +746,14 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
         int fahrenheit = (int) (((temp / 10) / 0.555) + 32 + 0.5);
         battTempTextView.setText("" + fahrenheit + "F");
 
-        if (fahrenheit < 125){
-          setBattTempNotifColor(getResources().getColor(R.color.soft_green));
+        if (fahrenheit > 125){
+          setBattTempNotifColor(getResources().getColor(R.color.soft_red));
+        }
+        else if (fahrenheit > 110){
+          setBattTempNotifColor(getResources().getColor(R.color.soft_yellow));
         }
         else{
-          setBattTempNotifColor(getResources().getColor(R.color.soft_red));
+          setBattTempNotifColor(getResources().getColor(R.color.soft_green));
         }
 
 
