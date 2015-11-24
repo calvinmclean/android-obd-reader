@@ -165,6 +165,11 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
           ObdReading reading = new ObdReading(lat, lon, System.currentTimeMillis(), vin, temp);
           new UploadAsyncTask().execute(reading);
         }
+        else{
+          // TODO anything with HTTP colors is causing an error
+//          setHttpNotifColor(getResources().getColor(R.color.soft_yellow));
+//          httpTextView.setText("HTTP upload not enabled");
+        }
         commandResult.clear();
       }
       // run again in period defined in preferences
@@ -174,29 +179,31 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
   @InjectView(R.id.compass_text)
   private TextView compass;
 
-  @InjectView(R.id.BT_STATUS)
-  private TextView btStatusTextView;
-  
-  @InjectView(R.id.OBD_STATUS)
-  private TextView obdStatusTextView;
-  
+  @InjectView(R.id.GPS_POS_LABEL)
+  private TextView gpsStatusLabelTextView;
   @InjectView(R.id.GPS_POS)
   private TextView gpsStatusTextView ;
 
-  @InjectView(R.id.GPS_POS_LABEL)
-  private TextView gpsStatusLabelTextView;
-
   @InjectView(R.id.BT_STATUS_LABEL)
   private TextView btStatusLabelTextView;
+  @InjectView(R.id.BT_STATUS)
+  private TextView btStatusTextView;
 
   @InjectView(R.id.OBD_STATUS_LABEL)
   private TextView obdStatusLabelTextView;
+  @InjectView(R.id.OBD_STATUS)
+  private TextView obdStatusTextView;
 
   @InjectView(R.id.BATT_TEMP_STATUS_LABEL)
   private TextView battTempLabelTextView;
-
   @InjectView(R.id.BATT_TEMP_STATUS)
   private TextView battTempTextView;
+
+  // TODO
+//  @InjectView(R.id.HTTP_STATUS_LABEL)
+//  private TextView httpLabelTextView;
+//  @InjectView(R.id.HTTP_STATUS)
+//  private TextView httpTextView;
 
   @InjectView(R.id.vehicle_view)
   private LinearLayout vv;
@@ -641,7 +648,13 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
 
     @Override
     protected Void doInBackground(ObdReading... readings) {
-      Log.d(TAG, "Uploading " + readings.length + " readings..");
+      final String uploadMsg = "Uploading " + readings.length + " readings..";
+      Log.d(TAG, uploadMsg);
+
+      // TODO
+//      setHttpNotifColor(getResources().getColor(R.color.soft_green));
+//      httpTextView.setText(uploadMsg);
+
       // instantiate reading service client
       final String endpoint = prefs.getString(ConfigActivity.UPLOAD_URL_KEY, "");
       RestAdapter restAdapter = new RestAdapter.Builder()
@@ -654,11 +667,20 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
           Response response = service.uploadReading(reading);
           assert response.getStatus() == 200;
         }
-        catch  (RetrofitError re)
-        {Log.e(TAG, re.toString());}
+        catch  (RetrofitError re) {
+          Log.e(TAG, re.toString());
+          // TODO
+//          setHttpNotifColor(getResources().getColor(R.color.soft_red));
+//          httpTextView.setText("Error: " + re.getMessage());
+        }
 
       }
       Log.d(TAG, "Done");
+
+      // TODO
+//      setHttpNotifColor(getResources().getColor(R.color.soft_green));
+//      httpTextView.setText("Standing-by");
+
       return null;
     }
 
@@ -732,6 +754,12 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
     battTempLabelTextView.setBackgroundColor(color);
     battTempTextView.setBackgroundColor(color);
   }
+
+  // TODO
+//  private void setHttpNotifColor(int color){
+//    httpLabelTextView.setBackgroundColor(color);
+//    httpTextView.setBackgroundColor(color);
+//  }
 
   /**
    *Listens for intent broadcasts; Needed for the temperature-display.

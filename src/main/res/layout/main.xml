@@ -61,7 +61,7 @@
   <ScrollView
       android:id="@+id/data_scroll"
       android:layout_width="fill_parent"
-      android:layout_height="299dp"
+      android:layout_height="241dp"
       android:layout_gravity="top"
       android:layout_margin="10dp"
       android:elevation="2dp"
@@ -182,6 +182,35 @@
             <!--android:layout_weight="1"-->
             <!--android:gravity="center"-->
             <!--android:text=""/>-->
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/HTTP_STATUS_LABEL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/text_http"
+            android:textSize="@dimen/abc_text_size_medium_material"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/HTTP_STATUS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""/>
+
     </TableRow>
 
 </LinearLayout>
