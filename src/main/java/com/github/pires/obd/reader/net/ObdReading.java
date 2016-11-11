@@ -20,61 +20,80 @@ import java.util.Map;
  * DTO for OBD readings.
  */
 public class ObdReading {
-  private double latitude, longitude;
-  private long timestamp;
-  private String vin;
-  private Map<String, String> readings;
+    private double latitude, longitude, altitude;
+    private long timestamp;
+    private String vehicleid; // vehicle id
+    private Map<String, String> readings;
 
-  public ObdReading(){
-    readings = new HashMap<>();
-  }
+    public ObdReading() {
+        readings = new HashMap<>();
+    }
 
-  public ObdReading(double latitude, double longitude, long timestamp, String vin, Map<String, String> readings) {
-    this.latitude = latitude;
-    this.longitude = longitude;
-    this.timestamp = timestamp;
-    this.vin = vin;
-    this.readings = readings;
-  }
+    public ObdReading(double latitude, double longitude, double altitude, long timestamp,
+                      String vehicleid, Map<String, String> readings) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
+        this.timestamp = timestamp;
+        this.vehicleid = vehicleid;
+        this.readings = readings;
+    }
 
-  public double getLatitude() {
-    return latitude;
-  }
+    public double getLatitude() {
+        return latitude;
+    }
 
-  public void setLatitude(double latitude) {
-    this.latitude = latitude;
-  }
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 
-  public double getLongitude() {
-    return longitude;
-  }
+    public double getAltitude() {
+        return altitude;
+    }
 
-  public void setLongitude(double longitude) {
-    this.longitude = longitude;
-  }
+    public void setAltitude(double altitude) {
+        this.altitude = altitude;
+    }
 
-  public long getTimestamp() {
-    return timestamp;
-  }
+    public double getLongitude() {
+        return longitude;
+    }
 
-  public void setTimestamp(long timestamp) {
-    this.timestamp = timestamp;
-  }
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
-  public String getVin() {
-    return vin;
-  }
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-  public void setVin(String vin) {
-    this.vin = vin;
-  }
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
-  public Map<String, String> getReadings() {
-    return readings;
-  }
+    public String getVin() {
+        return vehicleid;
+    }
 
-  public void setReadings(Map<String, String> readings) {
-    this.readings = readings;
-  }
+    public void setVin(String vehicleid) {
+        this.vehicleid = vehicleid;
+    }
+
+    public Map<String, String> getReadings() {
+        return readings;
+    }
+
+    public void setReadings(Map<String, String> readings) {
+        this.readings = readings;
+    }
+
+    public String toString() {
+
+        return "lat:" + latitude + ";" +
+                "long:" + longitude + ";" +
+                "alt:" + altitude + ";" +
+                "vehicleid:" + vehicleid + ";" +
+                "readings:" + readings.toString().substring(10).replace("}", "").replace(",", ";");
+    }
 
 }
