@@ -1,28 +1,16 @@
+## Personal note
+
+The owner of the [upstream repository](https://github.com/pires/android-obd-reader/), Pires, is no longer active on the project, so this repo is now flying solo.  Thank you Pires for all of the care that you have given to the project to allow it to live on.
+
+
 android-obd-reader
 ========================
-
-## NOTICE
-
-**I am no longer involved in any way with OBD and related activities, so don't expect my feedback on issues, pull-requests and most of all, email.**
-
-I can't even remember when I first picked this project from Brice Lambi (the original author). But one thing I'm sure, it was a time my interests changed quite frequently and I'd contribute simultaneously to totally unrelated projects. But for some reason this project stuck with me the longest.
-
-Initially, it was more of an Android hack (sorry, Brice!). With time, I've redesigned the code and split it into two: [a Java API library](https://github.com/pires/obd-java-api/) that could run anywhere the JVM ran without concerning about which transport protocol one would use (because it just asks for one `InputStream/OutputStream` pair) and, after learning about Android development, a revamped Android app.
-
-I know, the UI sucks, but I've never had the eye for UI/UX, I'll admit!
-
-Years went by and a few contributors jumped in with amazing, smart features and fixes. To those fine people, **Thank you**! This is your _baby_, too.
-
-Now, it's time to say goodbye.
-Pires
-
-[![CircleCI](https://circleci.com/gh/pires/android-obd-reader.svg?style=svg)](https://circleci.com/gh/pires/android-obd-reader)
 
 Android OBD-II reader designed to connect with Bluetooth Elm327 OBD reader.
 
 ![screenshot](/Screenshot.png)
 
-The latest release can be found [here](https://github.com/pires/android-obd-reader/releases/).
+The latest release can be found [here](https://github.com/seanhold3n/android-obd-reader/releases/).
 
 ## Prerequisites ##
 - JDK 8
@@ -43,6 +31,7 @@ gradle clean build installDebug
 
 If you want to upload data to a server, for now, check the following:
 * [OBD Server](https://github.com/pires/obd-server/) - a simple implementation of a RESTful app, compiled into a runnable JAR.
+* [Alternate OBD Server](https://github.com/seanhold3n/obd-server-python) - a simple Python + Postgres implementation of the web server.
 * Enable the upload functionality in preferences
 * Set proper endpoint address and port in preferences.
 
