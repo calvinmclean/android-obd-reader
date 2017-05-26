@@ -10,12 +10,9 @@
     <string name="service_stopped">OBD connection has stopped.</string>
     <string name="notification_label">Tap to open OBD-Reader.</string>
     <string name="title_activity_trouble_codes">Trouble Codes</string>
-    <string name="pref_upload_category_title">Data Upload</string>
-    <string name="pref_upload_category" translatable="false">upload_category</string>
     <string name="title_activity_trips_list">TripsList</string>
     <string name="menu_trip_list">Trips</string>
     <string name="menu_item_trip_delete">Delete</string>
-    <string name="pref_gps_category" translatable="false">gps_category</string>
     <string name="dialog_loading_title">Loading…</string>
     <string name="dialog_loading_body">Loading application View, please wait…</string>
     <string name="menu_start_live_data">Start Live Data</string>
@@ -33,10 +30,7 @@
     <string name="text_consumption_default" translatable="false">fuel stuff here</string>
     <string name="text_runtime_default" translatable="false">00:00:00</string>
     <string name="text_engine_rpm_default" translatable="false">--- RPM</string>
-    <string name="title_pref_obd">OBD Preferences</string>
-    <string name="title_pref_commands">OBD Commands</string>
     <string name="title_pref_bluetooth" translatable="false">Bluetooth</string>
-    <string name="title_pref_gps" translatable="false">GPS</string>
     <string name="text_no_bluetooth_id">Sorry, your device doesn\'t support Bluetooth</string>
     <string name="text_bluetooth_disabled">You have Bluetooth disabled. Please enable it (using Mock service)</string>
     <string name="text_bluetooth_nodevice">No Bluetooth device selected</string>
@@ -45,7 +39,9 @@
     <string name="text_no_gps_support">Sorry, your device doesn\'t support or has disabled GPS.</string>
     <string name="text_save_trip_not_available">Sorry, trip will not be saved.</string>
     <string name="text_obd_command_failure">OBD command failure!</string>
+    <string name="text_noerrors">There were no errors found!</string>
     <string name="text_dtc_no_data">No DTC stored</string>
+    <!-- Statuses -->
     <string name="status_no_bluetooth_id">unavailable</string>
     <string name="status_bluetooth_disabled">disabled</string>
     <string name="status_bluetooth_ok">ready</string>
@@ -63,6 +59,10 @@
     <string name="status_obd_data">receiving data&#8230;</string>
     <string name="status_obd_disconnected">disconnected</string>
     <string name="status_obd_no_support">NA</string>
+
+    <!-- Preferences -->
+    <!-- Data Upload -->
+    <string name="pref_upload_category_title">Data Upload</string>
     <string name="pref_upload_title">Enable Data Upload</string>
     <string name="pref_upload_summaryOff">Enable http data upload</string>
     <string name="pref_upload_summaryOn">Disable http data upload</string>
@@ -70,11 +70,14 @@
     <string name="pref_upload_url_summary">POST URL that will accept real-time data</string>
     <string name="pref_vehicle_id_title">Vehicle ID</string>
     <string name="pref_vehicle_id_summary">Optional unique id of this vehicle, used with uploaded data</string>
+    <!-- Bluetooth -->
     <string name="pref_bluetooth_title">Enable Bluetooth</string>
     <string name="pref_bluetooth_summaryOff">Turn on Bluetooth</string>
     <string name="pref_bluetooth_summaryOn">Turn off Bluetooth</string>
     <string name="pref_bluetooth_list_devices_summary">List of paired bluetooth devices.</string>
     <string name="pref_bluetooth_list_devices_title">Bluetooth Devices</string>
+    <!-- GPS -->
+    <string name="title_pref_gps" translatable="false">GPS</string>
     <string name="pref_gps_category_title">Enable GPS</string>
     <string name="pref_gps_category_summaryOff">Turn on GPS</string>
     <string name="pref_gps_category_summaryOn">Turn off GPS</string>
@@ -82,6 +85,8 @@
     <string name="pref_gps_update_period_summary">The length of time between querying new position in seconds</string>
     <string name="pref_gps_distance_period_title">Update Period in Meters</string>
     <string name="pref_gps_distance_period_summary">Min Distance between location updates, in meters</string>
+    <!-- OBD Preferences -->
+    <string name="title_pref_obd">OBD Preferences</string>
     <string name="pref_obd_protocols_title">OBD Protocol</string>
     <string name="pref_obd_protocols_summary">Select OBD Protocol to use</string>
     <string name="pref_imperial_units_title">Imperial Units</string>
@@ -98,8 +103,10 @@
     <string name="pref_engine_displacement_summary">Used for fuel economy on vehicles without MAF sensor</string>
     <string name="pref_reader_config_title">Reader Config Commands</string>
     <string name="pref_reader_config_summary">Commands to configure bluetooth reader, separate with new line</string>
+    <!-- OBD Commands -->
+    <string name="title_pref_commands">OBD Commands</string>
     <string name="title_pref_commands_summary">Select the commands you would like to see in real-time.</string>
-    <string name="title_pref_commands_title">OBD Commands</string>
+    <!-- Logging -->
     <string name="title_pref_full_logging"> Full logging configuration </string>
     <string name="pref_enable_full_logging_summary"> Enables full offline logging with upload</string>
     <string name="pref_enable_full_logging_title"> Enable full logging </string>
@@ -107,7 +114,7 @@
     <string name="pref_dirname_dialogTitle">Choose the name of the directory to save the logs</string>
     <string name="pref_dirname_title">Directory name</string>
     <string name="pref_dirname_summary">Name of the directory where to save the files</string>
+    <!-- Developer contact -->
     <string name="pref_dev_email_title">Developer Email</string>
     <string name="pref_dev_email_summary">Logs will be emailed to this address</string>
-    <string name="text_noerrors">There were no errors found.!</string>
 </resources>

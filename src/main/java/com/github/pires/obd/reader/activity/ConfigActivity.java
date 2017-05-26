@@ -32,6 +32,7 @@ import java.util.Set;
  */
 public class ConfigActivity extends PreferenceActivity implements OnPreferenceChangeListener {
 
+    // TODO externalize strings?  (would also need to externalize in preferences.xml)
     public static final String BLUETOOTH_LIST_KEY = "bluetooth_list_preference";
     public static final String UPLOAD_URL_KEY = "upload_url_preference";
     public static final String UPLOAD_DATA_KEY = "upload_data_preference";
@@ -51,6 +52,7 @@ public class ConfigActivity extends PreferenceActivity implements OnPreferenceCh
     public static final String ENABLE_FULL_LOGGING_KEY = "enable_full_logging";
     public static final String DIRECTORY_FULL_LOGGING_KEY = "dirname_full_logging";
     public static final String DEV_EMAIL_KEY = "dev_email";
+    public static final String GPS_CATEGORY_KEY = "gps_category";
 
     /**
      * @param prefs
@@ -330,7 +332,7 @@ public class ConfigActivity extends PreferenceActivity implements OnPreferenceCh
 
     private void hideGPSCategory() {
         PreferenceScreen preferenceScreen = getPreferenceScreen();
-        PreferenceCategory preferenceCategory = (PreferenceCategory) findPreference(getResources().getString(R.string.pref_gps_category));
+        PreferenceCategory preferenceCategory = (PreferenceCategory) findPreference(GPS_CATEGORY_KEY);
         if (preferenceCategory != null) {
             preferenceCategory.removeAll();
             preferenceScreen.removePreference((Preference) preferenceCategory);
