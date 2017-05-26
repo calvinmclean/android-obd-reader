@@ -1,4 +1,4 @@
-# Personal note
+### Personal note
 
 The owner of the [upstream repository](https://github.com/pires/android-obd-reader/), Pires, is no longer active on the project, so this repo is now flying solo.  Thank you Pires for all of the care that you have given to the project to allow it to live on.
 
