@@ -25,8 +25,7 @@
     <string name="pref_dirname_title">Nome do diret&#243;rio</string>
     <string name="title_pref_obd">Prefer&#234;ncias OBD</string>
     <string name="title_pref_full_logging">Configura&#231;&#245;es de log completo</string>
-    <string name="title_pref_commands_title">Comandos OBD</string>
-    <string name="title_pref_commands_summary">Selecione os comandos que voc&#234; deseja ver em tempo real.</string>
+	<string name="title_pref_commands_summary">Selecione os comandos que voc&#234; deseja ver em tempo real.</string>
     <string name="title_pref_commands">Comandos OBD</string>
     <string name="title_activity_trouble_codes">C&#243;digos de Erro</string>
     <string name="title_activity_trips_list">Lista de viagens</string>
