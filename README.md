@@ -1,4 +1,4 @@
-## Personal note
+# Personal note
 
 The owner of the [upstream repository](https://github.com/pires/android-obd-reader/), Pires, is no longer active on the project, so this repo is now flying solo.  Thank you Pires for all of the care that you have given to the project to allow it to live on.
 
@@ -14,8 +14,8 @@ The latest release can be found [here](https://github.com/seanhold3n/android-obd
 
 ## Prerequisites ##
 - JDK 8
-- Android Studio 1.5.x or newer
-- Android SDK (API 22, Build tools 23.0.1)
+- Android Studio 2.x or newer
+- Android SDK (API 22, Build tools 25.0.0)
 - [OBD Java API](https://github.com/pires/obd-java-api/) (already included)
 
 ## Test with device ##
