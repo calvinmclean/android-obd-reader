@@ -66,30 +66,26 @@ public class LogCSVWriter {
         String crl;
 
         if (isFirstLine) {
-            crl = HEADER_CSV + reading.toString();
+            crl = reading.toString();
             addLine(crl);
             isFirstLine = false;
 
             // Add line with the columns
             crl = "";
-            for (String ccln : NAMES_COLUMNS) {
-                crl += ccln + ";";
+            for (String ccln : NAMES_COLUMNS_ONLY_READINGS) {
+                crl += ccln + ",";
             }
             addLine(crl.substring(0, crl.length() - 1)); // remove last ";"
 
         } else {
 
-            crl = reading.getTimestamp() + ";" +
-                    reading.getLatitude() + ";" +
-                    reading.getLongitude() + ";" +
-                    reading.getAltitude() + ";" +
-                    reading.getVin() + ";";
+            crl = "";
 
 
             Map<String, String> read = reading.getReadings();
 
             for (String ccln : NAMES_COLUMNS_ONLY_READINGS) {
-                crl += read.get(ccln) + ";";
+                crl += read.get(ccln) + ",";
             }
 
             addLine(crl.substring(0, crl.length() - 1));
